@@ -21,8 +21,8 @@ s3 = new AWS.S3({
     credentials:{
         maxRetries: 3,
         httpOptions: {timeout: 30000, connectTimeout: 5000},
-        accessKeyId: process.env.AWS_KEY,
-        secretAccessKey: process.env.AWS_SECRET
+        accessKeyId: 'AKIAUTSGTB62IJ3Z6PQS',
+        secretAccessKey: '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'
     }
 })
 
@@ -46,5 +46,11 @@ app.post('/', async (req, res) => {
 
     res.send('yes uploaded')
 })
+
+app.get('/healthcheck', (req, res) => {
+    res.send('<h1 style="color:green">server running</h1>')
+})
+
+
 app.listen(PORT, function(){ console.log(`port started in ${PORT}`)})
 
